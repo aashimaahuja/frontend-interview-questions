@@ -16,3 +16,16 @@ function throttle(fn, delay) {
     }
   };
 }
+
+function basicThrottle(callback, delay) {
+  let isBlocked = false;
+  return function (...args) {
+    if (!isBlocked) {
+      isBlocked = true;
+      callback(...args);
+      setTimeout(() => {
+        isBlocked = false;
+      }, delay);
+    }
+  };
+}
