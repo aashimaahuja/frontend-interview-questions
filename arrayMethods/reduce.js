@@ -2,11 +2,12 @@
 
 Array.prototype.myReduce = function (callback, initialValue) {
   const arr = this;
+  let start = initialValue ? 1 : 0;
   initialValue = initialValue || arr[0];
 
   let ac = initialValue;
 
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = start; i < arr.length; i++) {
     ac = callback(ac, arr[i]);
   }
 

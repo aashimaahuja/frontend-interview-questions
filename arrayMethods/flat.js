@@ -1,7 +1,8 @@
-function flat(arr, res = []) {
+function flat(arr) {
+  const res = [];
   for (let item of arr) {
     if (Array.isArray(item)) {
-      flat([...item], res);
+      res.push(...flat(item));
     } else {
       res.push(item);
     }

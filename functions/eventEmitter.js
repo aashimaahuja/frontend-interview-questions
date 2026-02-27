@@ -10,10 +10,10 @@ class EventEmitter {
   }
   subscribe(event, listener) {
     if (this.events.has(event)) {
-      this.events.push(listener);
+      this.events.get(event).push(listener);
       return;
     }
-    this.events.set(event, listener);
+    this.events.set(event, [listener]);
   }
   unsubscribe(event, listener) {
     if (this.events.has(event)) {
@@ -36,4 +36,4 @@ const callback1 = (a, b) => a + b;
 const emitter = new EventEmitter();
 emitter.subscribe("event1", callback1);
 emitter.subscribe("event1", 1, 2);
-emitter.usubscribe("event1");
+emitter.unsubscribe("event1");

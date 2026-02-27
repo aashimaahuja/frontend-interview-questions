@@ -2,7 +2,7 @@ Array.prototype.myFilter = function (callback, thisArg) {
   const arr = this;
   let res = [];
   for (let i = 0; i < arr.length; i++) {
-    if (!!callback.call(thisArg, arr[i], i, arr)) {
+    if (callback.call(thisArg, arr[i], i, arr)) {
       res.push(arr[i]);
     }
   }
